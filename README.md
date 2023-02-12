@@ -1,0 +1,2 @@
+curl --location --request GET 'http://localhost:8080/test?columns=%7B%22data%22%3A%22storyName%22%2C%22name%22%3A%22storyName%22%2C%22orderable%22%3Atrue%2C%22searchable%22%3Atrue%2C%22search%22%3A%7B%22value%22%3A%22%22%2C%22regex%22%3Afalse%7D%7D&page=1&pageSize=10&sort=%7B%22columnName%22%3A%22storyName%22%2C%22sortType%22%3A%22ASC%22%7D' \
+--header 'Language-Code: de'

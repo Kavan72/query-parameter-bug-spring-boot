@@ -1,0 +1,85 @@
+openapi: 3.0.3
+info:
+  title: query-parameter-bug
+  description: 'query-parameter-bug'
+  version: 1.0.0
+
+paths:
+  /test:
+    get:
+      summary: get all data
+      description: get all data
+      operationId: get-all
+      parameters:
+        - in: header
+          name: Language-Code
+          schema:
+            type: string
+          required: true
+        - name: sort
+          in: query
+          required: true
+          schema:
+            $ref: '#/components/schemas/Sort'
+        - name: columns
+          in: query
+          required: true
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/Column'
+        - in: query
+          name: page
+          schema:
+            type: integer
+          required: true
+        - in: query
+          name: pageSize
+          schema:
+            type: integer
+          required: true
+      responses:
+        200:
+          description: all story
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  totalRecords:
+                    type: integer
+                    format: int64
+                  draw:
+                    type: integer
+
+components:
+  schemas:
+    Column:
+      properties:
+        data:
+          type: string
+        name:
+          type: string
+        orderable:
+          type: boolean
+        searchable:
+          type: boolean
+        search:
+          $ref: '#/components/schemas/Search'
+
+    Search:
+      properties:
+        value:
+          type: string
+        regex:
+          type: boolean
+
+    Sort:
+      properties:
+        columnName:
+          type: string
+        sortType:
+          type: string
+          enum:
+            - ASC
+            - DESC
