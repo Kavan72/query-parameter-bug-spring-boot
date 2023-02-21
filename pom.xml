@@ -103,6 +103,8 @@
                                 <skipFormModel>false</skipFormModel>
                             </globalProperties>
 
+                            <templateDirectory>src/main/resources/custom-templates/</templateDirectory>
+
                             <configOptions>
                                 <useSpringBoot3>true</useSpringBoot3>
                                 <interfaceOnly>true</interfaceOnly>
